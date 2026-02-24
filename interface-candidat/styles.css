@@ -1,0 +1,456 @@
+/* ========================================
+   SRM Casablanca-Settat - Interface Pro
+   Design: Corporate, Clean, Compact
+   ======================================== */
+
+:root {
+    --primary: #2196C9;
+    --primary-dark: #1976A8;
+    --green: #43A047;
+    --orange: #F5871F;
+    --gray-dark: #5F6368;
+
+    --bg: #F8FAFB;
+    --white: #FFFFFF;
+    --text: #202124;
+    --text-secondary: #5F6368;
+    --border: #E8EAED;
+
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,0.1);
+    --radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('zelij-background.png');
+    background-repeat: repeat;
+    background-size: 350px;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   Header
+   ======================================== */
+
+.header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto 1rem;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+}
+
+/* Annonce bilingue */
+.announcement {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.announcement-fr,
+.announcement-ar {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.announcement-fr {
+    border-top: 4px solid var(--primary);
+}
+
+.announcement-ar {
+    border-top: 4px solid var(--green);
+    direction: rtl;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.announcement h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.announcement h2 strong {
+    color: var(--primary);
+    font-size: 1.3rem;
+}
+
+.announcement p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.announcement p:last-child {
+    margin-bottom: 0;
+}
+
+.announcement p.cta {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.announcement p.cta strong {
+    color: var(--primary);
+}
+
+.announcement strong {
+    color: var(--primary);
+}
+
+.announcement-ar strong {
+    color: var(--green);
+}
+
+@media (max-width: 900px) {
+    .announcement {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+
+.main-content {
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+}
+
+.intro-text {
+    text-align: center;
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   Segments Grid
+   ======================================== */
+
+.segments-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+}
+
+/* ========================================
+   Segment Card
+   ======================================== */
+
+.segment-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+    min-height: 200px;
+}
+
+.segment-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Card Header */
+.card-header {
+    padding: 1.25rem 1.5rem;
+    background: var(--primary);
+}
+
+.card-header.blue { background: var(--primary); }
+.card-header.green { background: var(--green); }
+.card-header.orange { background: var(--orange); }
+.card-header.gray { background: var(--gray-dark); }
+
+.card-level {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* Card Body */
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    flex: 1;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+/* Card Action */
+.card-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.card-action span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.card-action svg {
+    color: var(--primary);
+    transition: transform 0.2s ease;
+}
+
+.segment-card:hover .card-action svg {
+    transform: translateX(4px);
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ========================================
+   Modal
+   ======================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: var(--primary);
+    color: white;
+}
+
+.modal-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.modal-body {
+    padding: 1rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Liste postes/profils */
+.postes-list, .profils-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.poste-item, .profil-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.15s ease;
+}
+
+.poste-item:hover, .profil-item:hover {
+    border-color: var(--primary);
+    background: #F5FBFF;
+}
+
+.poste-info, .profil-info {
+    flex: 1;
+}
+
+.poste-info h4, .profil-info h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+}
+
+.poste-info p, .profil-info p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.btn-candidater {
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-candidater:hover {
+    background: var(--primary-dark);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 1100px) {
+    .segments-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .segments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .header-divider {
+        display: none;
+    }
+
+    .header-text {
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .segments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .logo {
+        height: 48px;
+    }
+}
